@@ -1,74 +1,95 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class Ucak
+{
+    public string isim;              // Uçak adı
+    public int fiyat;                // Altın fiyatı
+    public GameObject ucakPrefab;    // Oyun için model
+    [HideInInspector] public bool satinAlindi; // Satın alma durumu (kaydedilir)
+}
+
 public class MarketManager : MonoBehaviour
 {
-    public GameObject marketPanel; // Market panelini buraya atayacağız
-    public GameObject[] ucaklar;
-    public Button[] satinAlButonlari;
-    public TextMeshProUGUI altinText;
+    [Header("Market Ayarları")]
+    public List<Ucak> ucaklar;               // Inspector’dan ayarla
+    public List<Button> satinAlButonlari;   // Her uçağa ait butonlar (UI)
+    public TextMeshProUGUI altinText;       // UI’daki altın yazısı
+    public GameObject marketPanel;          // Market paneli
 
-    private int altin;
+    private int mevcutAltin;                // Şu anki altın
+    private int seciliUcakIndex;            // Hangi uçak seçili
 
     void Start()
     {
-        altin = PlayerPrefs.GetInt("Altin", 0);
-        GuncelleAltinUI();
+        // Altın bilgisini yükle
+        mevcutAltin = PlayerPrefs.GetInt("Altin", 0);
+        altinText.text = "Altın: " + mevcutAltin;
 
-        for (int i = 0; i < ucaklar.Length; i++)
+        // Her uçağın satın alma durumunu kontrol et
+        for (int i = 0; i < ucaklar.Count; i++)
         {
-            int index = i;
-            bool satinAlindi = PlayerPrefs.GetInt("Ucak" + index, 0) == 1;
-
-            if (satinAlindi)
-            {
-                satinAlButonlari[i].GetComponentInChildren<TextMeshProUGUI>().text = "SEÇ";
-            }
-
-            satinAlButonlari[i].onClick.AddListener(() => UcakSatinAlOrSec(index));
+            ucaklar[i].satinAlindi = PlayerPrefs.GetInt("Ucak_" + i, 0) == 1;
+            ButonYazisiniGuncelle(i);
         }
+
+        // Seçili uçağı yükle
+        seciliUcakIndex = PlayerPrefs.GetInt("SeciliUcak", 0);
     }
 
     public void UcakSatinAlOrSec(int index)
     {
-        bool satinAlindi = PlayerPrefs.GetInt("Ucak" + index, 0) == 1;
+        Ucak secilenUcak = ucaklar[index];
 
-        if (satinAlindi)
+        if (secilenUcak.satinAlindi)
         {
+            // Zaten satın alındıysa, sadece seç
+            seciliUcakIndex = index;
             PlayerPrefs.SetInt("SeciliUcak", index);
-            Debug.Log("Uçak seçildi: Uçak" + index);
+            Debug.Log(secilenUcak.isim + " seçildi.");
         }
         else
         {
-            int fiyat = 100;
-            if (altin >= fiyat)
+            // Satın alacak kadar altını var mı?
+            if (mevcutAltin >= secilenUcak.fiyat)
             {
-                altin -= fiyat;
-                PlayerPrefs.SetInt("Ucak" + index, 1);
+                mevcutAltin -= secilenUcak.fiyat;
+                PlayerPrefs.SetInt("Altin", mevcutAltin);
+                secilenUcak.satinAlindi = true;
+                PlayerPrefs.SetInt("Ucak_" + index, 1); // Kaydet
                 PlayerPrefs.SetInt("SeciliUcak", index);
-                GuncelleAltinUI();
-                satinAlButonlari[index].GetComponentInChildren<TextMeshProUGUI>().text = "SEÇ";
-                Debug.Log("Uçak satın alındı ve seçildi: Uçak" + index);
+                seciliUcakIndex = index;
+
+                altinText.text = "Altın: " + mevcutAltin;
+                Debug.Log(secilenUcak.isim + " satın alındı ve seçildi.");
             }
             else
             {
-                Debug.Log("Yeterli altın yok!");
+                Debug.Log("Yetersiz altın!");
             }
         }
+
+        // Buton yazısını güncelle
+        ButonYazisiniGuncelle(index);
     }
 
-    void GuncelleAltinUI()
+    void ButonYazisiniGuncelle(int index)
     {
-        altinText.text = "Altın: " + altin;
-        PlayerPrefs.SetInt("Altin", altin);
+        if (ucaklar[index].satinAlindi)
+        {
+            satinAlButonlari[index].GetComponentInChildren<TextMeshProUGUI>().text = "SEÇ";
+        }
+        else
+        {
+            satinAlButonlari[index].GetComponentInChildren<TextMeshProUGUI>().text = ucaklar[index].fiyat + " ALTIN";
+        }
     }
 
     public void GeriDon()
     {
-        // Market panelini kapat
         marketPanel.SetActive(false);
         Debug.Log("Ana menüye dönüldü");
     }

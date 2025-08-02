@@ -29,6 +29,7 @@
 
         void Start()
         {
+
             yPozisyonu = transform.position.y;
             previousZPosition = transform.position.z;
             baslangicZ = transform.position.z;
