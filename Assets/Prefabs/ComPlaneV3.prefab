@@ -430,9 +430,10 @@ GameObject:
   - component: {fileID: 4981765282510727476}
   - component: {fileID: 6478780529558418957}
   - component: {fileID: 5840882078736019810}
+  - component: {fileID: 5306636680249123585}
   m_Layer: 0
   m_Name: ComPlaneV3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,10 +446,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6783042612740966625}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6302038968042357066}
   - {fileID: 8351610742862702620}
@@ -520,11 +521,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 133690397059232672, guid: 2e292e8b73b6b9f47bcac5e4e2c57eed, type: 3}
 --- !u!114 &5840882078736019810
@@ -540,15 +541,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yenidenBaslaPanel: {fileID: 0}
-  hareketHizi: 5
+  yatayHareketHizi: 5
+  yatayHizMax: 12
+  baseIleriHizi: 5
+  maxIleriHizi: 25
+  hizKatlamaKatsayisi: 2
   yukseklikHizi: 5
   maxYukseklik: 4
   minYukseklik: 0
-  hizArtisKademesi: 10
   egimHizi: 2
   maxEgilmeAcisi: 20
   mesafeText: {fileID: 0}
   altinText: {fileID: 0}
+--- !u!54 &5306636680249123585
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783042612740966625}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7399269967106667562
 GameObject:
   m_ObjectHideFlags: 0

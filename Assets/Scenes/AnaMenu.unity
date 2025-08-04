@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &29521525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1138,7 +1138,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 725433092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1238007030}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: UcakSatinAlOrSec
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &725433092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,7 +1272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1084415679}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1238007030}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: UcakSatinAlOrSec
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1084415679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,7 +2729,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1782672773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1238007030}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: UcakSatinAlOrSec
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1782672773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3306,7 +3342,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2101513519}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1238007030}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: UcakSatinAlOrSec
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2101513519
 MonoBehaviour:
   m_ObjectHideFlags: 0
