@@ -1718,22 +1718,31 @@ MonoBehaviour:
   - isim: "K\u0131rm\u0131z\u0131"
     fiyat: 30
     ucakPrefab: {fileID: 6783042612740966625, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+    skinler: []
     satinAlindi: 0
+    seciliSkinIndex: 0
   - isim: Siyah Helikopter
     fiyat: 50
     ucakPrefab: {fileID: 5588413167485372887, guid: f8c3b65648d88284e8a74f107c8cbb56, type: 3}
+    skinler: []
     satinAlindi: 0
+    seciliSkinIndex: 0
   - isim: Decdsa
     fiyat: 150
     ucakPrefab: {fileID: 5525295603368428666, guid: f6d4109da7a8fb14598e335baed19ec6, type: 3}
+    skinler: []
     satinAlindi: 0
+    seciliSkinIndex: 0
   - isim: cdascdsa
     fiyat: 500
     ucakPrefab: {fileID: 2132970168135295506, guid: fa28e0cc64b3f4345a9d2215c5bfec80, type: 3}
+    skinler: []
     satinAlindi: 0
+    seciliSkinIndex: 0
   satinAlButonlari: []
   altinText: {fileID: 1093987593}
   marketPanel: {fileID: 1385390839}
+  seciliUcakSpawnNoktasi: {fileID: 1084415677}
 --- !u!1 &1254774885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,7 +2027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1385390840
 RectTransform:
   m_ObjectHideFlags: 0
